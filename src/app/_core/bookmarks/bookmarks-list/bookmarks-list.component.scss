@@ -1,0 +1,8 @@
+@import '../../../_scss/base.scss';
+
+.noData{
+  text-align: center;
+  &-button{
+    margin: $sPadding auto;
+  }
+}

@@ -1,0 +1,10 @@
+@mixin anchors($theme) {
+  a {
+    @include activeElementHover(phantom-colour($theme, cta));
+    color: phantom-colour($theme, foreground, secondary-text);
+    display: flex;
+    align-items: center;
+    padding: $xsPadding;
+    border-radius: $radius;
+  }
+}

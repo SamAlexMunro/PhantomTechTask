@@ -1,0 +1,26 @@
+@mixin pagination($theme) {
+  phantom-pagination {
+    .pagination {
+      display: flex;
+      font-size: $sFont;
+      justify-content: space-between;
+
+      &__pageLength {
+        display: flex;
+        align-items: center;
+
+        &-p {
+          margin-right: $xsPadding;
+        }
+      }
+
+      &__pages {
+        display: flex;
+
+        >button {
+          width: 38px;
+        }
+      }
+    }
+  }
+}

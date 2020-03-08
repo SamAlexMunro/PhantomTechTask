@@ -1,0 +1,43 @@
+<div class="bookmark" *ngIf="bookmark">
+  <!-- Bookmark view URL, Note, and edit/delete buttons -->
+  <div class="bookmark__view" *ngIf="!bookmark?.edit">
+    <div class="bookmark__view-top">
+      <!-- Bookmark URL -->
+      <a class="bookmark__view-top-url" [href]="bookmark?.url" target="_blank">{{bookmark?.url}}</a>
+      <!-- Edit Button -->
+      <button phantom-icon-button class="bookmark__view-top-edit" (click)="enableEdit(bookmark)">
+        <i class="material-icons">
+          edit
+        </i>
+      </button>
+      <!-- Delete Button-->
+      <button phantom-icon-button class="bookmark__view-top-delete" (click)="enableDelete()" *ngIf="!successPage">
+        <i class="material-icons">
+          delete_outline
+        </i>
+      </button>
+    </div>
+    <!-- Bookmark notes -->
+    <div class="bookmark__view-bottom">
+      <dl class="bookmark__view-bottom-notes" *ngIf="bookmark?.note">
+        <dt class="bookmark__view-bottom-notes-tag">Notes
+        <dd class="bookmark__view-bottom-notes-data"> <b>:</b> {{bookmark?.note}}
+      </dl>
+    </div>
+  </div>
+  <!-- Edit options for bookmark -->
+  <div class="bookmark__edit" *ngIf="bookmark?.edit">
+    <phantom-add-or-edit-bookmark (emitBookmark)="updateBookmark($event)" (cancelEditEmit)="enableEdit(bookmark)"
+      [bookmarkToEdit]="bookmark"></phantom-add-or-edit-bookmark>
+  </div>
+  <!-- Confirmation dialog for deleting a bookmark -->
+  <div class="bookmark__delete" *ngIf="showDelete">
+    <p>Are you sure you want to <b>delete</b> this bookmark?
+      <div class="bookmark__delete-row">
+        <!-- Cancel Delete Button -->
+        <button phantom-button-flat class="bookmark__delete-row-cancel" (click)="cancelDelete()">Cancel</button>
+        <!-- Confirm Delete Button -->
+        <button phantom-button-delete (click)="deleteBookmark(bookmark?.id)">Delete</button>
+      </div>
+  </div>
+</div>

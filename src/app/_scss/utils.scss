@@ -1,0 +1,10 @@
+@function phantom-colour($theme, $colourSelector, $opacitySelector: default) {
+  $opacities: map-get($theme, opacities);
+  $opacity: map-get($opacities, $opacitySelector);
+  @return rgba(phantom-colour-map($theme, $colourSelector), $opacity);
+}
+
+@function phantom-colour-map($theme, $colour) {
+  $colours: map-get($theme, colours);
+  @return map-get($colours, $colour);
+}

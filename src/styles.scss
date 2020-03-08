@@ -1,0 +1,40 @@
+@import './app/_scss/base.scss';
+
+$lightTheme: setTheme($pWhite, $pBlack, $pBlue);
+$darkTheme: setTheme($pBlack, $pWhite, $pGreen);
+
+.light-theme {
+  @include theme($lightTheme);
+}
+
+.dark-theme {
+  @include theme($darkTheme);
+}
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  font-size: 14px;
+  @include breakpoint(2000px){
+    font-size: 24px;
+  }
+}
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}

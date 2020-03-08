@@ -1,0 +1,30 @@
+<section class="pagination">
+  <div class="pagination__pageLength">
+    <!-- Set the pagination page length -->
+    <p class="pagination__pageLength-p">Page Length</p>
+    <select (change)="setPageLength($event.target.value)">
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="30">30</option>
+    </select>
+  </div>
+  <!-- Navigate the pages via incremental/decremental increases of by page number -->
+  <div class="pagination__pages">
+    <!-- Navivagate by decremental value -->
+    <button phantom-icon-button class="pagination__pages-decrement" (click)="decrementPage()">
+      <i class="material-icons">
+        chevron_left
+      </i>
+    </button>
+    <!-- Navigate by page number -->
+    <button phantom-icon-button class="pagination__pages-page" (click)="setPage(page)"
+      *ngFor="let page of pageNumbers">{{page}}</button>
+    <!-- Navigate by incremental value -->
+    <button phantom-icon-button class="pagination__pages-increment" (click)="incrementPage()">
+      <i class="material-icons">
+        chevron_right
+      </i>
+    </button>
+  </div>
+</section>

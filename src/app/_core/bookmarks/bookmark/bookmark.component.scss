@@ -1,0 +1,87 @@
+@mixin bookmark($theme) {
+  phantom-bookmark {
+    position: relative;
+    z-index: 0;
+
+    .bookmark {
+      border-bottom: 1px solid;
+      border-color: phantom-colour($theme, foreground, weak-border);
+      margin-bottom: $mPadding;
+      padding-bottom: $sPadding;
+      position: relative;
+      z-index: 0;
+
+      &__view {
+        &-top {
+          display: flex;
+          position: relative;
+
+          &-url {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 85%;
+            display: block;
+            overflow: hidden
+          }
+
+          &-edit {
+            margin-left: auto;
+
+            >i {
+              font-size: 1.2rem;
+            }
+
+          }
+
+          &-delete {
+            >i {
+              font-size: 1.5rem;
+              color: phantom-colour($theme, error);
+            }
+          }
+        }
+
+        &-bottom {
+          &-notes {
+            display: flex;
+            margin-left: 3px;
+
+            &-tag {
+              margin-right: 3px;
+              font-size: $sFont;
+            }
+
+            &-data {
+              font-size: $sFont;
+              color: phantom-colour($theme, foreground, secondary-text);
+            }
+          }
+        }
+      }
+
+      &__edit {
+        &-row {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+
+      &__delete {
+        margin-top: $sPadding;
+        align-items: center;
+
+        &-row {
+          margin-top: $sPadding;
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+
+  phantom-bookmark[borderless] {
+    .bookmark {
+      border-bottom: unset;
+    }
+  }
+}

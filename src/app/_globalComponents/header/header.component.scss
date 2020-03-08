@@ -1,0 +1,41 @@
+@mixin phantomHeader($theme) {
+  phantom-header {
+    .header {
+      position: fixed;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      background: phantom-colour($theme, background);
+      width: 100vw;
+      padding: $mPadding;
+      color: phantom-colour($theme, foreground, primary-text);
+      @include verticalBoxShadow(phantom-colour($theme, foreground, box-shadow));
+      display: flex;
+      align-items: center;
+
+      @include breakpoint(800px) {
+        padding: $mPadding 20vw;
+      }
+
+      &__logo {
+        font-size: $lIconFont;
+        @include textClipLinear(#DCEDC8, #1B5E20);
+      }
+
+      &__title {
+        margin-left: $sPadding;
+        font-size: $lFont;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      &__mobileMenu {
+        margin-left: auto;
+
+        &-icon {
+          font-size: $lIconFont;
+        }
+      }
+    }
+  }
+}

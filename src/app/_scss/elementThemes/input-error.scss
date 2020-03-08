@@ -1,0 +1,7 @@
+@mixin inputError($theme) {
+  p[phantom-input-error] {
+    color: phantom-colour($theme, error);
+    font-size: $sFont;
+    margin-bottom: $sPadding;
+  }
+}

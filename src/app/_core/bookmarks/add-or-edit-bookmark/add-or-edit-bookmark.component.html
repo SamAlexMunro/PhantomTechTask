@@ -1,0 +1,26 @@
+<form [formGroup]="bookmarkFormModel" (ngSubmit)="submitBookmark()">
+  <!-- URL Input and error Handling -->
+  <label for="" phantom-input-label>
+    Bookmark URL<b>*</b>
+  </label>
+  <input type="text" phantom-input class="input" formControlName="url" id="urlInput">
+  <div *ngIf="url.invalid && (url.dirty || url.touched)">
+    <p phantom-input-error *ngIf="url.errors.invalidUrl">
+      {{url.errors.invalidUrl.errorMessage}}
+    </p>
+  </div>
+  <!-- Notes Input -->
+  <label for="" phantom-input-label>Notes</label>
+  <input type="text" phantom-input class="input" formControlName="note" id="noteInput">
+  <!-- Form submission, clear and cancel controls -->
+  <div class="row">
+    <!-- Clear Button -->
+    <button phantom-button-flat class="clear" type="reset" *ngIf="!bookmarkToEdit">Clear</button>
+    <!-- Cancel Edit Button -->
+    <button phantom-button-flat class="cancel" type="reset" (click)="cancelEdit()"
+      *ngIf="bookmarkToEdit">Cancel</button>
+    <!-- Submit Form Button -->
+    <button phantom-button [disabled]="bookmarkFormModel.pristine || bookmarkFormModel.invalid" type="submit"
+      id="submit">Submit</button>
+  </div>
+</form>

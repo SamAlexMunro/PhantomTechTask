@@ -1,0 +1,24 @@
+@mixin routerTheme($theme) {
+  phantom-root {
+    .router {
+      background: phantom-colour($theme, background);
+      height: calc(100vh - 3.4rem);
+      margin-top: 3.4rem;
+      width: 100vw;
+      padding: 0 1rem;
+      padding-top: 5vh;
+      overflow: auto;
+      position: relative;
+
+      &__inner {
+        transition: width 0.3s linear;
+        width: 100%;
+
+        @include breakpoint(800px) {
+          width: 60%;
+          margin: 0 20%;
+        }
+      }
+    }
+  }
+}

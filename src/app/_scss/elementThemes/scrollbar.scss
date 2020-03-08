@@ -1,0 +1,14 @@
+@mixin scrollbar($theme) {
+
+  ::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border: 1.5px solid phantom-colour($theme, foreground, secondary-text);
+    border-radius: 6px;
+    background-clip: padding-box;
+    background-color: phantom-colour($theme, foreground, secondary-text);
+  }
+}

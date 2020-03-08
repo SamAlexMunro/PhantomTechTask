@@ -1,0 +1,13 @@
+@mixin cardHeader($theme) {
+  phantom-card-header {
+    border-bottom: 1px solid phantom-colour($theme, foreground, weak-border);
+    padding: $sPadding $mPadding;
+    display: block;
+    background: phantom-colour($theme, foreground, card-header);
+    color: phantom-colour($theme, foreground, primary-text);
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+    text-transform: uppercase;
+    font-size: $mFont;
+  }
+}

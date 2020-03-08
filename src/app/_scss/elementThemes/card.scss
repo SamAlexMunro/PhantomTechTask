@@ -1,0 +1,8 @@
+@mixin cardTheme($theme) {
+  phantom-card {
+    background: phantom-colour($theme, background);
+    @include boxShadow(phantom-colour($theme, foreground, box-shadow));
+    border-radius: $radius;
+    display: block;
+  }
+}

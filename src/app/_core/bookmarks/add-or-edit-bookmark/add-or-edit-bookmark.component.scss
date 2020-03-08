@@ -1,0 +1,10 @@
+@import '../../../_scss/base.scss';
+
+.input {
+  margin-bottom: $sPadding;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}

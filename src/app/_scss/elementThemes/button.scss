@@ -1,0 +1,59 @@
+@mixin button($theme) {
+  button {
+    color: phantom-colour($theme, foreground, primary-text);
+    padding: $xsPadding $sPadding;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  button[phantom-icon-button] {
+    border-bottom: 0;
+  }
+
+  button[phantom-button-flat] {
+    border-bottom: 1px solid phantom-colour($theme, foreground, weak-border);
+    padding: $xsPadding;
+    @include activeElementHover(phantom-colour($theme, cta));
+
+    &:hover {
+      border-radius: $radius;
+    }
+  }
+
+
+  button[phantom-button] {
+    background: phantom-colour($theme, cta, secondary-text);
+    border-radius: $radius;
+    @include boxShadow(phantom-colour($theme, foreground, box-shadow), 3px);
+
+    &:hover {
+      background: phantom-colour($theme, cta, primary-text);
+      cursor: pointer;
+    }
+  }
+
+  button[phantom-button-delete] {
+    border-radius: $radius;
+    background: phantom-colour($theme, error, secondary-text);
+
+    &:hover {
+      background: phantom-colour($theme, error, primary-text);
+    }
+  }
+
+  button[phantom-button][disabled],
+  button[phantom-button-delete][disabled] {
+    background: phantom-colour($theme, foreground, disabled);
+    cursor: not-allowed;
+  }
+
+  button[phantom-button-flat][disabled],
+  button[phantom-icon-button][disabled] {
+    cursor: not-allowed;
+  }
+}

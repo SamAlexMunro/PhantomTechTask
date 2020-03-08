@@ -1,0 +1,31 @@
+@mixin verticalBoxShadow($colour) {
+  box-shadow: 0 0px 5px $colour;
+}
+
+@mixin boxShadow($colour, $blur: 8px) {
+  box-shadow: 1px 2px $blur $colour;
+}
+
+@mixin breakpoint($width) {
+  @media (min-width:#{$width}) {
+    @content;
+  }
+}
+
+@mixin textClipLinear($colour, $colour2) {
+  background-image: linear-gradient(to bottom, $colour, $colour2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@mixin activeElementHover ($color) {
+  background: linear-gradient(120deg, transparent 0%, transparent 50%, $color 50%);
+  background-size: 235%;
+  transition: all 0.25s linear;
+
+  &:hover {
+    background-position: 100%;
+    cursor: pointer;
+  }
+}

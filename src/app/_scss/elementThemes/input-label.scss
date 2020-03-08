@@ -1,0 +1,7 @@
+@mixin input-label($theme) {
+  label[phantom-input-label] {
+    color: phantom-colour($theme, foreground, secondary-text);
+    font-size: $sFont;
+    display: block;
+  }
+}

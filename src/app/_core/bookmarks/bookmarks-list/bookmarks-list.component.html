@@ -1,0 +1,10 @@
+<phantom-card>
+  <phantom-card-header>Bookmarks</phantom-card-header>
+  <phantom-card-content>
+    <div class="noData" *ngIf="!paginatedBookmarks">
+      Currently no bookmarks to show why dont you generate some<button phantom-button class="noData-button" (click)="generateData()">Generate</button>
+    </div>
+    <phantom-bookmark *ngFor="let bookmark of paginatedBookmarks" [bookmark]="bookmark"></phantom-bookmark>
+    <phantom-pagination [paginationObject]="pagination" [pageNumbers]="pageNumbers"></phantom-pagination>
+  </phantom-card-content>
+</phantom-card>

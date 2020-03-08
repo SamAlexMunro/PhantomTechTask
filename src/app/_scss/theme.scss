@@ -1,0 +1,20 @@
+@import './colours.scss';
+@import './maps.scss';
+
+@function setTheme($background: $pWhite, $foreground: $pBlack, $cta: $pGreen, $error: $pRed) {
+  $opacities: null;
+
+  @if (lightness($background) > 50) {
+    $opacities: $opacitiesLight;
+  }
+
+  @else {
+    $opacities: $opacitiesDark;
+  }
+
+  @return (opacities: $opacities,
+    colours: (background: $background,
+      foreground: $foreground,
+      cta: $cta,
+      error: $error));
+}
