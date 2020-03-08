@@ -33,15 +33,6 @@
     }
   }
 
-  button[phantom-button-delete] {
-    border-radius: $radius;
-    background: phantom-colour($theme, error, secondary-text);
-
-    &:hover {
-      background: phantom-colour($theme, error, primary-text);
-    }
-  }
-
   button[phantom-button][disabled],
   button[phantom-button-delete][disabled] {
     background: phantom-colour($theme, foreground, disabled);

@@ -2,9 +2,10 @@
   input[phantom-input] {
     color: phantom-colour($theme, foreground, secondary-text);
     background: phantom-colour($theme, background);
-    border-radius: $radius;
-    border: 1px solid phantom-colour($theme, foreground, weak-border);
-    padding: $xsPadding $sPadding;
+    border: unset;
+    border-bottom: 1px solid phantom-colour($theme, foreground, weak-border);
+    padding: $xsPadding 0;
+    font-size: 1rem;
     display: block;
     width: 100%;
   }

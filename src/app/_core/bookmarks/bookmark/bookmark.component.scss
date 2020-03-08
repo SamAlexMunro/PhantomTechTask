@@ -26,18 +26,12 @@
 
           &-edit {
             margin-left: auto;
-
-            >i {
-              font-size: 1.2rem;
-            }
-
+            margin-right: $sPadding;
+            font-size: $sFont;
           }
 
           &-delete {
-            >i {
-              font-size: 1.5rem;
-              color: phantom-colour($theme, error);
-            }
+            font-size: $sFont;
           }
         }
 
@@ -67,7 +61,7 @@
       }
 
       &__delete {
-        margin-top: $sPadding;
+        margin-top: $mPadding;
         align-items: center;
 
         &-tag{
@@ -77,9 +71,15 @@
           }
         }
         &-row {
-          margin-top: $sPadding;
+          margin-top: $xsPadding;
           display: flex;
           justify-content: space-between;
+          &-deleteBtn{
+            background: phantom-colour($theme, error, secondary-text);;
+            &:hover{
+              background: phantom-colour($theme, error, primary-text);;
+            }
+          }
         }
       }
     }

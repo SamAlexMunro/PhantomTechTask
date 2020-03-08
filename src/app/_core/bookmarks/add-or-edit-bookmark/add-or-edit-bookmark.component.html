@@ -3,7 +3,7 @@
   <label for="urlInput" phantom-input-label>
     Bookmark URL<b>*</b>
   </label>
-  <input type="text" phantom-input class="input" formControlName="url" id="urlInput">
+  <input type="text" phantom-input class="input" formControlName="url" id="urlInput" placeholder="Enter URL">
   <div *ngIf="url.invalid && (url.dirty || url.touched)">
     <p phantom-input-error *ngIf="url.errors.invalidUrl">
       {{url.errors.invalidUrl.errorMessage}}
@@ -14,7 +14,7 @@
   </div>
   <!-- Notes Input -->
   <label for="noteInput" phantom-input-label>Notes</label>
-  <input type="text" phantom-input class="input" formControlName="note" id="noteInput">
+  <input type="text" phantom-input class="input" formControlName="note" id="noteInput" placeholder="Enter notes">
   <!-- Form submission, clear and cancel controls -->
   <div class="row">
     <!-- Clear Button -->

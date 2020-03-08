@@ -5,16 +5,12 @@
       <!-- Bookmark URL -->
       <a class="bookmark__view-top-url" [href]="bookmark?.url" target="_blank">{{bookmark?.url}}</a>
       <!-- Edit Button -->
-      <button phantom-icon-button class="bookmark__view-top-edit" (click)="enableEdit(bookmark)">
-        <i class="material-icons">
-          edit
-        </i>
+      <button phantom-button-flat class="bookmark__view-top-edit" (click)="enableEdit(bookmark)">
+        Edit
       </button>
       <!-- Delete Button-->
-      <button phantom-icon-button class="bookmark__view-top-delete" (click)="enableDelete()" *ngIf="!successPage">
-        <i class="material-icons">
-          delete_outline
-        </i>
+      <button phantom-button-flat class="bookmark__view-top-delete" (click)="enableDelete()" *ngIf="!successPage">
+        Delete
       </button>
     </div>
     <!-- Bookmark notes -->
@@ -37,7 +33,7 @@
         <!-- Cancel Delete Button -->
         <button phantom-button-flat class="bookmark__delete-row-cancel" (click)="cancelDelete()">Cancel</button>
         <!-- Confirm Delete Button -->
-        <button phantom-button-delete (click)="deleteBookmark(bookmark?.id)">Delete</button>
+        <button phantom-button (click)="deleteBookmark(bookmark?.id)" class="bookmark__delete-row-deleteBtn">Delete</button>
       </div>
   </div>
 </div>

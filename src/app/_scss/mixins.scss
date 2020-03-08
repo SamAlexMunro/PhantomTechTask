@@ -21,11 +21,11 @@
 
 @mixin activeElementHover ($color) {
   background: linear-gradient(120deg, transparent 0%, transparent 50%, $color 50%);
-  background-size: 235%;
+  background-size: 245%;
   transition: all 0.25s linear;
 
   &:hover {
-    background-position: 100%;
+    background-position: 99%;
     cursor: pointer;
   }
 }
