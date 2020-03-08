@@ -4,6 +4,8 @@ A bookmark management system that persits data without any backend servers, with
 
 `Phantom Boomarks Techanical Design Document` can be found within the root of this repository.
 
+View the application live at - https://bookmarks-270514.appspot.com/
+
 # Installation
 
 - Git clone
