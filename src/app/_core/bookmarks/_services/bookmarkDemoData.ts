@@ -1,11 +1,5 @@
 export const demoData = [
   {
-    url: 'https://www.google.com',
-    note: 'The answer to ALMOST anything',
-    id: '1',
-    edit: false
-  },
-  {
     url: 'https://www.udemy.com',
     note: 'E-Resources',
     id: '2',
@@ -39,6 +33,12 @@ export const demoData = [
     url: 'https://angular.io/',
     note: 'Angular documentation',
     id: '7',
+    edit: false
+  },
+  {
+    url: 'https://www.google.com',
+    note: 'If you know what to google then this is your swiss army knife for information!',
+    id: '1',
     edit: false
   },
   {
