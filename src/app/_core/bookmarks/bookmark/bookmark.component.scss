@@ -70,6 +70,12 @@
         margin-top: $sPadding;
         align-items: center;
 
+        &-tag{
+          margin-left: 3px;
+          &-bold{
+            color:  phantom-colour($theme, error);
+          }
+        }
         &-row {
           margin-top: $sPadding;
           display: flex;

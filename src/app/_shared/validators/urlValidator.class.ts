@@ -11,6 +11,9 @@ export function urlValidator(control: FormControl) {
     };
   }
   if (url) {
+    /**
+     * Trim and lowercase the URL to prevent any strange edge cases.
+     */
     url = url.toLowerCase();
     url = url.trim();
     const prefix = url.slice(0, 8);

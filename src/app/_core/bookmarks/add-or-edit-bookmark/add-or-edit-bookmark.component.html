@@ -23,7 +23,7 @@
     <button phantom-button-flat class="cancel" type="reset" (click)="cancelEdit()"
       *ngIf="bookmarkToEdit">Cancel</button>
     <!-- Submit Form Button -->
-    <button phantom-button [disabled]="bookmarkFormModel.pristine || bookmarkFormModel.invalid" type="submit"
+    <button phantom-button [disabled]="url.errors ||  bookmarkFormModel.pristine || bookmarkFormModel.invalid"  type="submit"
       id="submit">Submit</button>
   </div>
 </form>

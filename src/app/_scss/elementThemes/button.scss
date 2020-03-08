@@ -16,13 +16,9 @@
   }
 
   button[phantom-button-flat] {
-    border-bottom: 1px solid phantom-colour($theme, foreground, weak-border);
     padding: $xsPadding;
     @include activeElementHover(phantom-colour($theme, cta));
-
-    &:hover {
-      border-radius: $radius;
-    }
+    border-radius: $radius;
   }
 
 
