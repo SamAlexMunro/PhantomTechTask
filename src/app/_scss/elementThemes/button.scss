@@ -13,22 +13,25 @@
 
   button[phantom-icon-button] {
     border-bottom: 0;
+    border-radius: 50px;
+    @include activeElementHover(phantom-colour($theme, cta, btn));
   }
 
   button[phantom-button-flat] {
     padding: $xsPadding;
-    @include activeElementHover(phantom-colour($theme, cta));
+    @include activeElementHover(phantom-colour($theme, cta, btn));
     border-radius: $radius;
   }
 
 
   button[phantom-button] {
-    background: phantom-colour($theme, cta, secondary-text);
+    background: phantom-colour($theme, cta, btn);
     border-radius: $radius;
+    transition: background ease-in 0.2s;
     @include boxShadow(phantom-colour($theme, foreground, box-shadow), 3px);
 
     &:hover {
-      background: phantom-colour($theme, cta, primary-text);
+      background: phantom-colour($theme, cta);
       cursor: pointer;
     }
   }
@@ -42,5 +45,9 @@
   button[phantom-button-flat][disabled],
   button[phantom-icon-button][disabled] {
     cursor: not-allowed;
+
+    &:hover {
+      background: none;
+    }
   }
 }

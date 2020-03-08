@@ -18,8 +18,11 @@
       </i>
     </button>
     <!-- Navigate by page number -->
-    <button phantom-icon-button class="pagination__pages-page" (click)="setPage(page)"
-      *ngFor="let page of pageNumbers">{{page}}</button>
+    <button phantom-icon-button class="pagination__pages-page"
+      [class.pagination__pages-page--active]="currentPage === page" (click)="setPage(page)"
+      *ngFor="let page of pageNumbers">
+      {{page}}
+    </button>
     <!-- Navigate by incremental value -->
     <button phantom-icon-button class="pagination__pages-increment" (click)="incrementPage()">
       <i class="material-icons">

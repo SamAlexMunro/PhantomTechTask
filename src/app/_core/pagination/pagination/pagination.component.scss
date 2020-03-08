@@ -17,6 +17,12 @@
       &__pages {
         display: flex;
 
+        &-page {
+          &--active {
+            text-decoration: underline;
+          }
+        }
+
         >button {
           width: 38px;
         }

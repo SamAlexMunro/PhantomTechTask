@@ -1,6 +1,6 @@
 @mixin cardHeader($theme) {
   phantom-card-header {
-    border-bottom: 1px solid phantom-colour($theme, foreground, weak-border);
+    border-bottom: 1px solid phantom-colour($theme, foreground, border);
     padding: $sPadding $mPadding;
     display: block;
     background: phantom-colour($theme, foreground, card-header);

@@ -11,6 +11,7 @@ export class PaginationComponent implements OnInit {
 
   @Input() paginationObject: Pagination;
   @Input() pageNumbers: number[];
+  currentPage = 1;
 
   constructor(
   ) { }
@@ -23,6 +24,7 @@ export class PaginationComponent implements OnInit {
    */
   public setPage(pageNumber: number): void {
     this.paginationObject.setPage(pageNumber);
+    this.currentPage = pageNumber;
   }
 
   /**
@@ -37,6 +39,7 @@ export class PaginationComponent implements OnInit {
    */
   public incrementPage(): void {
     this.paginationObject.nextPage();
+    this.currentPage++;
   }
 
   /**
@@ -44,5 +47,6 @@ export class PaginationComponent implements OnInit {
    */
   public decrementPage(): void {
     this.paginationObject.previousPage();
+    this.currentPage--;
   }
 }

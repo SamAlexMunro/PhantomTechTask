@@ -5,7 +5,7 @@
 
     .bookmark {
       border-bottom: 1px solid;
-      border-color: phantom-colour($theme, foreground, weak-border);
+      border-color: phantom-colour($theme, foreground, border);
       margin-bottom: $mPadding;
       padding-bottom: $sPadding;
       position: relative;
