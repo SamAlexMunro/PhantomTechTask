@@ -24,7 +24,7 @@ export class BookmarkSuccessComponent implements OnInit {
    */
   private getBookmarks(): void {
     this.subscriptions.push(this.bookmarkService.getBookmarks.subscribe((bookmarks) => {
-      this.bookmark = bookmarks[bookmarks.length - 1];
+      this.bookmark = bookmarks[0];
     }));
   }
 }

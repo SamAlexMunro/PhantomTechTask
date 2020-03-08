@@ -1,7 +1,7 @@
 import { FormControl } from '@angular/forms';
 
 export function urlValidator(control: FormControl) {
-  const url = control.value;
+  let url = control.value;
   const urlValidCharacters = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi;
   if (!url) {
     return {
@@ -11,7 +11,8 @@ export function urlValidator(control: FormControl) {
     };
   }
   if (url) {
-    url.trim();
+    url = url.toLowerCase();
+    url = url.trim();
     const prefix = url.slice(0, 8);
     const suffix = url.slice(url.length - 6, url.length);
     if (!url.match(urlValidCharacters)) {
