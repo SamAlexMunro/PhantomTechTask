@@ -2,6 +2,7 @@ import { Bookmark } from './../_services/bookmark.service';
 import { Component, OnInit, Output, EventEmitter, Input, OnChanges } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { urlValidator } from '../../../_shared/validators/urlValidator.class';
+import { urlExists } from '../../../_shared/validators/urlExists.class';
 
 @Component({
   selector: 'phantom-add-or-edit-bookmark',
@@ -13,7 +14,7 @@ export class AddOrEditBookmarkComponent implements OnInit, OnChanges {
   @Output() cancelEditEmit = new EventEmitter();
   @Input() bookmarkToEdit: Bookmark;
   bookmarkFormModel = new FormGroup({
-    url: new FormControl('', [urlValidator]),
+    url: new FormControl('', [urlValidator], urlExists),
     note: new FormControl(''),
   });
 
@@ -22,7 +23,7 @@ export class AddOrEditBookmarkComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
   }
-
+  
   /**
    * Updates the bookmarkFormModel to bookmarkToEdit properties on @Input change.
    */

@@ -8,6 +8,9 @@
     <p phantom-input-error *ngIf="url.errors.invalidUrl">
       {{url.errors.invalidUrl.errorMessage}}
     </p>
+    <p phantom-input-error *ngIf="url.errors.urlNonExistant">
+      {{url.errors.urlNonExistant.errorMessage}}
+    </p>
   </div>
   <!-- Notes Input -->
   <label for="" phantom-input-label>Notes</label>
