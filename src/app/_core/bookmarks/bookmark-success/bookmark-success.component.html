@@ -3,7 +3,7 @@
   <phantom-card-content>
     <phantom-bookmark borderless [bookmark]="bookmark" [successPage]="true"></phantom-bookmark>
     <!-- Controls to return to home page -->
-    <button phantom-button-flat routerLink="">
+    <button phantom-button-flat (click)="navigateToLandingPage()">
       <i class="material-icons">
         chevron_left
       </i>

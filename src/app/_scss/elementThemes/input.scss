@@ -3,7 +3,7 @@
     color: phantom-colour($theme, foreground, secondary-text);
     background: phantom-colour($theme, background);
     border: unset;
-    border-bottom: 1px solid phantom-colour($theme, foreground, border);
+    border-bottom: 1px solid phantom-colour($theme, foreground, strong-border);
     padding: $xsPadding 0;
     font-size: 1rem;
     display: block;

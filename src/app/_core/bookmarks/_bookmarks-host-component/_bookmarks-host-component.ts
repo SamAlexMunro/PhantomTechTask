@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'phantom-bookmarks-list-host',
-  templateUrl: './bookmarks-list-host.component.html'
+  templateUrl: './_bookmarks-host-component.html'
 })
-export class BookmarksListHostComponent implements OnInit {
+export class BookmarksHostComponent implements OnInit {
 
   constructor() { }
 

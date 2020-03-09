@@ -1,3 +1,4 @@
+import { RouterTestingModule } from '@angular/router/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BookmarkSuccessComponent } from './bookmark-success.component';
@@ -8,7 +9,8 @@ describe('BookmarkSuccessComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BookmarkSuccessComponent ]
+      declarations: [ BookmarkSuccessComponent ],
+      imports: [ RouterTestingModule ]
     })
     .compileComponents();
   }));

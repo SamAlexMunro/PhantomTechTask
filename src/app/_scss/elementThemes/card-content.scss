@@ -1,6 +1,6 @@
 @mixin cardContent($theme) {
   phantom-card-content {
-    padding: $sPadding;
+    padding: $sPadding $mPadding;
     display: block;
     color: phantom-colour($theme, foreground, primary-text);
     border-bottom-left-radius: $radius;

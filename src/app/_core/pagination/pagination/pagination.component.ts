@@ -1,22 +1,44 @@
 import { Subscription } from 'rxjs/internal/Subscription';
 import { Pagination } from './../classes/pagination';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'phantom-pagination',
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss']
 })
-export class PaginationComponent implements OnInit {
+export class PaginationComponent implements OnInit, OnChanges, OnDestroy {
 
   @Input() paginationObject: Pagination;
   @Input() pageNumbers: number[];
   currentPage = 1;
+  totalPages: number;
+  subscriptions: Subscription[] = [];
 
   constructor(
   ) { }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges() {
+    /**
+     * It's useful for developement purposes to notify the user if they have missed one of the Input properties,
+     * both of them are fundamental to the logic and UI states of the component
+     */
+    if (this.paginationObject === null) {
+      throw new TypeError('Please provide a pagination object input');
+    }
+    if (this.pageNumbers === null) {
+      throw new TypeError('Please provide a pageNumbers input');
+    }
+    this.getTotalPageCount();
+  }
+
+  getTotalPageCount(): void {
+    this.subscriptions.push(this.paginationObject.getTotalPages.subscribe((totalPages: number)=>{
+      this.totalPages = totalPages;
+    }));
   }
 
   /**
@@ -39,7 +61,9 @@ export class PaginationComponent implements OnInit {
    */
   public incrementPage(): void {
     this.paginationObject.nextPage();
-    this.currentPage++;
+    if (this.currentPage !== this.totalPages) {
+      this.currentPage++;
+    }
   }
 
   /**
@@ -47,6 +71,14 @@ export class PaginationComponent implements OnInit {
    */
   public decrementPage(): void {
     this.paginationObject.previousPage();
-    this.currentPage--;
+    if (this.currentPage !== 1) {
+      this.currentPage--;
+    }
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach((sub) => {
+      sub.unsubscribe();
+    });
   }
 }

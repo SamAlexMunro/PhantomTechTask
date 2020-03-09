@@ -73,8 +73,9 @@
         &-row {
           margin-top: $xsPadding;
           display: flex;
-          justify-content: space-between;
+          justify-content: flex-end;
           &-deleteBtn{
+            margin-left: $lPadding;
             background: phantom-colour($theme, error, secondary-text);;
             &:hover{
               background: phantom-colour($theme, error, primary-text);;

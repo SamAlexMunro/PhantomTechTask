@@ -4,13 +4,16 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddNewBookmarkComponent } from './add-new-bookmark.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { BehaviorSubject } from 'rxjs';
 
 describe('AddNewBookmarkComponent', () => {
   let component: AddNewBookmarkComponent;
   let fixture: ComponentFixture<AddNewBookmarkComponent>;
+  const bookmarksObs$ = new BehaviorSubject<any>(null);
   const mockBookmarkService = {
     addBookmark: () => {
-    }
+    },
+    getBookmarks: bookmarksObs$.asObservable()
   };
 
   beforeEach(async(() => {

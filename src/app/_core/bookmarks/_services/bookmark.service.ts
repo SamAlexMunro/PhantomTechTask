@@ -39,11 +39,11 @@ export class BookmarkService {
    * and updates the bookmarks$ with the spread method.
    */
   public editBookmark(bookmarkId: string, updatedBookmark: Bookmark): void {
-    this.bookmarks$.getValue().find((bookmark, index) => {
+    this.bookmarks$.getValue().forEach((bookmark, index) => {
       if (bookmark.id === bookmarkId) {
         this.bookmarks$.getValue()[index].url = updatedBookmark.url;
         this.bookmarks$.getValue()[index].note = updatedBookmark.note;
-        return -1;
+        return;
       }
     });
     this.bookmarks$.next([...this.bookmarks$.getValue()]);

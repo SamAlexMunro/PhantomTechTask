@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { BookmarkService, Bookmark } from './../_services/bookmark.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,11 +13,20 @@ export class BookmarkSuccessComponent implements OnInit {
   bookmark: Bookmark;
 
   constructor(
-    private readonly bookmarkService: BookmarkService
+    private readonly bookmarkService: BookmarkService,
+    private readonly router: Router
   ) { }
 
   ngOnInit(): void {
     this.getBookmarks();
+  }
+
+  /** Sets the bookmark.edit to false to prevent  */
+  navigateToLandingPage() {
+    if (this.bookmark) {
+      this.bookmark.edit = false;
+    }
+    this.router.navigate(['']);
   }
 
   /**

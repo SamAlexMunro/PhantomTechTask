@@ -4,9 +4,10 @@ export class Pagination {
   private pageLength: number;
   private roundedPageLength: number;
   private data: any[];
-  private pages = {};
+  private pages: object;
   private currentPage = 1;
-  private pageCount: number;
+  private totalPages: number;
+  private totalPages$ = new BehaviorSubject<number>(null);
   private pageArray$ = new BehaviorSubject(null);
   public currentData$ = new BehaviorSubject(null);
 
@@ -26,7 +27,7 @@ export class Pagination {
    * Incrementally changes the page.
    */
   public nextPage(): void {
-    if (this.currentPage !== this.pageCount) {
+    if (this.currentPage !== this.totalPages) {
       this.currentPage++;
       this.setCurrentData(this.pages[this.currentPage]);
       this.buildPageNumbers();
@@ -45,7 +46,7 @@ export class Pagination {
   }
 
   /**
-   * Sets the page from a fixed number
+   * Sets the page from a fixed number.
    */
   public setPage(pageNumber: number): void {
     this.setCurrentData(this.pages[pageNumber]);
@@ -60,8 +61,18 @@ export class Pagination {
     return this.currentData$;
   }
 
+  /**
+   * Returns page numbers.
+   */
   public get getPageNumbers(): BehaviorSubject<number[]> {
     return this.pageArray$;
+  }
+
+  /**
+   * Returns total pages.
+   */
+  public get getTotalPages(): BehaviorSubject<number> {
+    return this.totalPages$;
   }
 
   /**
@@ -78,9 +89,10 @@ export class Pagination {
    */
   private paginate(): void {
     this.roundedPageLength = Math.ceil(this.pageLength);
-    this.pageCount = Math.ceil((this.data.length / this.roundedPageLength));
+    this.totalPages = Math.ceil((this.data.length / this.roundedPageLength));
+    this.totalPages$.next(this.totalPages);
     this.pages = {};
-    for (let i = 1; i <= this.pageCount; i++) {
+    for (let i = 1; i <= this.totalPages; i++) {
       const page = i;
       this.pages[page] = [];
     }
@@ -89,7 +101,7 @@ export class Pagination {
 
   /** Builds the page numbers to be shown and push that value into an observable stream to be consumed by
    * the file instantiating this class, it can then be piped down (@Input) into the pagination component or used for
-   * a custom made pagination component
+   * a custom made pagination component.
    */
   private buildPageNumbers(): void {
     const pageArray = [];
@@ -100,9 +112,9 @@ export class Pagination {
     } else {
       pageArray.push(currentPage);
     }
-    if (this.pageCount > 1) {
-      for (let i = 0; i < this.pageCount; i++) {
-        if (currentPage < this.pageCount && pageArray.length < 3) {
+    if (this.totalPages > 1) {
+      for (let i = 0; i < this.totalPages; i++) {
+        if (currentPage < this.totalPages && pageArray.length < 3) {
           currentPage += 1;
           pageArray.push(currentPage);
         }

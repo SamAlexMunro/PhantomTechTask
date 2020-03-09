@@ -30,7 +30,7 @@ export class AddOrEditBookmarkComponent implements OnInit, OnChanges {
   ngOnChanges() {
     if (this.bookmarkToEdit) {
       this.bookmarkFormModel = new FormGroup({
-        url: new FormControl(this.bookmarkToEdit?.url, [urlValidator]),
+        url: new FormControl(this.bookmarkToEdit?.url, [urlValidator], urlExists),
         note: new FormControl(this.bookmarkToEdit?.note),
       });
     }

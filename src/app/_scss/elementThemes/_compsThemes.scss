@@ -1,0 +1,29 @@
+@import '../../_globalComponents/header/header.component.scss';
+@import '../../app.component.scss';
+@import '../../_core/bookmarks/bookmark/bookmark.component.scss';
+@import '../../_core/pagination/pagination/pagination.component.scss';
+@import './button.scss';
+@import './card-content.scss';
+@import './card-header.scss';
+@import './card.scss';
+@import './input-error.scss';
+@import './input-label.scss';
+@import './input.scss';
+@import './anchor.scss';
+@import './scrollbar.scss';
+
+@mixin theme($theme) {
+  @include phantomHeader($theme);
+  @include routerTheme($theme);
+  @include cardTheme($theme);
+  @include cardHeader($theme);
+  @include cardContent($theme);
+  @include input($theme);
+  @include input-label($theme);
+  @include button($theme);
+  @include bookmark($theme);
+  @include pagination($theme);
+  @include inputError($theme);
+  @include anchors($theme);
+  @include scrollbar($theme);
+}
