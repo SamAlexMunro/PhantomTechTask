@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'phantom-header',
@@ -9,17 +9,20 @@ export class HeaderComponent implements OnInit {
 
   darkTheme = true;
 
-  constructor() { }
+  constructor(
+    private readonly renderer: Renderer2
+  ) { }
 
   ngOnInit(): void {
     this.setTheme();
-    document.body.classList.add('light-theme');
+    this.renderer.addClass(document.body, 'light-theme');
   }
 
   setTheme(): void {
     this.darkTheme = !this.darkTheme;
     const currentThemeClass = `${!this.darkTheme ? 'dark' : 'light'}-theme`;
     const newThemeClass = `${this.darkTheme ? 'dark' : 'light'}-theme`;
-    document.body.classList.replace(currentThemeClass, newThemeClass);
+    this.renderer.removeClass(document.body, currentThemeClass);
+    this.renderer.addClass(document.body, newThemeClass);
   }
 }
