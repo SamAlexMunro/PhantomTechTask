@@ -38,11 +38,11 @@ export class BookmarkService {
    * Edits an existing bookmark if the id matches one in the current observable,
    * and updates the bookmarks$ with the spread method.
    */
-  public editBookmark(bookmarkId: string, updatedBookmark: Bookmark): void {
+  public editBookmark(bookmarkId: string, newBookmarkValues: Bookmark): void {
     this.bookmarks$.getValue().find((bookmark, index) => {
       if (bookmark.id === bookmarkId) {
-        this.bookmarks$.getValue()[index].url = updatedBookmark.url;
-        this.bookmarks$.getValue()[index].note = updatedBookmark.note;
+        this.bookmarks$.getValue()[index].url = newBookmarkValues.url;
+        this.bookmarks$.getValue()[index].note = newBookmarkValues.note;
         return -1;
       }
     });
