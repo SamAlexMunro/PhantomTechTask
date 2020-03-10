@@ -13,13 +13,13 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.setTheme();
+    document.body.classList.add('light-theme');
   }
 
   setTheme(): void {
     this.darkTheme = !this.darkTheme;
     const currentThemeClass = `${!this.darkTheme ? 'dark' : 'light'}-theme`;
     const newThemeClass = `${this.darkTheme ? 'dark' : 'light'}-theme`;
-    document.body.classList.remove(currentThemeClass);
-    document.body.classList.add(newThemeClass);
+    document.body.classList.replace(currentThemeClass, newThemeClass);
   }
 }

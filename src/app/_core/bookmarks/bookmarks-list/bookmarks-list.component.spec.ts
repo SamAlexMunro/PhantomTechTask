@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { BookmarksListComponent } from './bookmarks-list.component';
-import { BookmarkService } from '../_services/bookmark.service';
+
 
 describe('BookmarksListComponent', () => {
   let component: BookmarksListComponent;
