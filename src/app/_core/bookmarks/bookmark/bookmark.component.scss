@@ -21,7 +21,7 @@
             text-overflow: ellipsis;
             max-width: 85%;
             display: block;
-            overflow: hidden
+            overflow: hidden;
           }
 
           &-edit {
@@ -38,7 +38,7 @@
         &-bottom {
           &-notes {
             display: flex;
-            margin-left: 3px;
+            margin: 0 3px;
 
             &-tag {
               margin-right: 3px;
@@ -64,21 +64,21 @@
         margin-top: $mPadding;
         align-items: center;
 
-        &-tag{
+        &-tag {
           margin-left: 3px;
-          &-bold{
-            color:  phantom-colour($theme, error);
+          &-bold {
+            color: phantom-colour($theme, error);
           }
         }
         &-row {
           margin-top: $xsPadding;
           display: flex;
           justify-content: flex-end;
-          &-deleteBtn{
+          &-deleteBtn {
             margin-left: $lPadding;
-            background: phantom-colour($theme, error, secondary-text);;
-            &:hover{
-              background: phantom-colour($theme, error, primary-text);;
+            background: phantom-colour($theme, error, secondary-text);
+            &:hover {
+              background: phantom-colour($theme, error, primary-text);
             }
           }
         }
